@@ -1,0 +1,37 @@
+import {
+  AlignLeft,
+  Calendar,
+  CircleDot,
+  Hash,
+  Heading,
+  Info,
+  Mail,
+  Phone,
+  SlidersHorizontal,
+  SquareCheck,
+  SquareChevronDown,
+  Star,
+  ToggleLeft,
+  Type,
+  Upload,
+  type LucideIcon,
+} from "lucide-react";
+import type { FieldType } from "@/lib/types";
+
+export const FIELD_TYPE_ICONS: Record<FieldType, LucideIcon> = {
+  TEXT: Type,
+  TEXTAREA: AlignLeft,
+  NUMBER: Hash,
+  EMAIL: Mail,
+  PHONE: Phone,
+  RADIO: CircleDot,
+  CHECKBOX: SquareCheck,
+  SELECT: SquareChevronDown,
+  YES_NO: ToggleLeft,
+  RATING: Star,
+  LINEAR_SCALE: SlidersHorizontal,
+  DATE: Calendar,
+  FILE: Upload,
+  HEADING: Heading,
+  INSTRUCTION: Info,
+};

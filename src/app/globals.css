@@ -39,6 +39,9 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-soft: var(--brand-soft);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -49,24 +52,28 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  /* CIC brand: keep in step with src/lib/brand.ts */
+  --brand: #c8102e;
+  --brand-dark: #9e0b23;
+  --brand-soft: #fdecee;
+  --background: oklch(0.975 0.004 20);
+  --foreground: oklch(0.2 0.01 20);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.2 0.01 20);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.2 0.01 20);
+  --primary: var(--brand);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.955 0.006 20);
+  --secondary-foreground: oklch(0.25 0.01 20);
+  --muted: oklch(0.955 0.006 20);
+  --muted-foreground: oklch(0.5 0.012 20);
+  --accent: var(--brand-soft);
+  --accent-foreground: var(--brand-dark);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.915 0.006 20);
+  --input: oklch(0.89 0.008 20);
+  --ring: var(--brand);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -127,4 +134,57 @@
   html {
     @apply font-sans;
   }
+}
+
+.rich-editor-body {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.6rem;
+  outline: none;
+  font-size: 0.9375rem;
+}
+
+.rich-editor-body-compact {
+  min-height: 2.25rem;
+  font-size: 0.875rem;
+}
+
+.rich-editor-body.rich-editor-title {
+  min-height: 0;
+  font-size: 1.75rem;
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.rich-editor-body.rich-editor-heading {
+  min-height: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.rich-editor-body p {
+  margin: 0.15rem 0;
+}
+
+.rich-editor-body ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.rich-editor-body ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+.rich-editor-body a {
+  color: var(--brand);
+  text-decoration: underline;
+}
+
+.rich-editor-body p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+  color: var(--muted-foreground);
 }

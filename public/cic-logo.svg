@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="40" viewBox="0 0 120 40" role="img" aria-label="CIC Insurance">
+  <rect width="40" height="40" rx="8" fill="#C8102E"/>
+  <text x="20" y="26" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#ffffff">CIC</text>
+  <text x="48" y="18" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1f1f1f">CIC</text>
+  <text x="48" y="32" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="500" fill="#6b6b6b">Insurance</text>
+</svg>

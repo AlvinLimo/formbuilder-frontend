@@ -126,6 +126,7 @@ export default function Home() {
     try {
       const response = await fetch(`http://localhost:4000/forms/${id}`, {
         method: "DELETE",
+        credentials: "include",
       });
 
       if (!response.ok) {
@@ -147,6 +148,7 @@ export default function Home() {
         `http://localhost:4000/forms/${form.id}/duplicate`,
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
@@ -306,7 +308,7 @@ export default function Home() {
                       <MoreVertical size={18} />
                     </button>
 
-                    <div className="invisible absolute right-0 top-10 z-10 w-44 rounded-lg border border-zinc-200 bg-white py-1 opacity-0 shadow-lg transition group-focus-within/menu:visible group-focus-within/menu:opacity-100">
+                    <div className="invisible flex flex-row absolute right-10 top-5 z-6 w-44 rounded-lg border border-zinc-200 bg-white py-1 opacity-0 shadow-lg transition group-focus-within/menu:visible group-focus-within/menu:opacity-100">
                       <button
                         onClick={() =>
                           router.push(`/builder/${form.id}`)
@@ -314,7 +316,6 @@ export default function Home() {
                         className="flex w-full items-center gap-3 px-3 py-2 text-sm hover:bg-zinc-50"
                       >
                         <Pencil size={16} />
-                        Edit
                       </button>
 
                       <button
@@ -322,7 +323,6 @@ export default function Home() {
                         className="flex w-full items-center gap-3 px-3 py-2 text-sm hover:bg-zinc-50"
                       >
                         <Copy size={16} />
-                        Duplicate
                       </button>
 
                       <button
@@ -330,7 +330,6 @@ export default function Home() {
                         className="flex w-full items-center gap-3 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
                       >
                         <Trash2 size={16} />
-                        Delete
                       </button>
                     </div>
                   </div>

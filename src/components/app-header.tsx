@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { InboxLink } from "@/components/inbox-link";
+import { MessagesLink } from "@/components/messages-link";
 import { UserMenu } from "@/components/user-menu";
 import { BRAND } from "@/lib/brand";
 
@@ -21,6 +22,7 @@ export function AppHeader({ actions }: { actions?: React.ReactNode }) {
             Forms
           </Link>
           <InboxLink />
+          <MessagesLink />
           {actions}
           <UserMenu />
         </nav>

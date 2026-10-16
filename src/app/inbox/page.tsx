@@ -4,6 +4,7 @@ import { Inbox as InboxIcon } from "lucide-react";
 import Link from "next/link";
 import { EmptyState } from "@/components/empty-state";
 import { useInbox } from "@/components/inbox-link";
+import { MessageButton } from "@/components/message-button";
 import { PageShell } from "@/components/page-shell";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -67,6 +68,7 @@ export default function InboxPage() {
                     {item.submittedAt ? ` · Submitted ${new Date(item.submittedAt).toLocaleDateString()}` : ""}
                   </p>
                 </div>
+                {item.assignedBy ? <MessageButton userId={item.assignedBy.id} /> : null}
                 {item.status === "PENDING" && item.form.publicId ? (
                   <Link href={`/f/${item.form.publicId}`} className={cn(buttonVariants({ size: "sm" }))}>
                     Fill in

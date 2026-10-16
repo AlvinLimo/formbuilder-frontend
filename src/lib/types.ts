@@ -125,6 +125,26 @@ export type AuthUser = {
   name: string;
 };
 
+export type Message = {
+  id: string;
+  body: string;
+  senderId: string | null;
+  createdAt: string;
+};
+
+export type ConversationSummary = {
+  id: string;
+  otherUser: AuthUser | null;
+  lastMessage: Message | null;
+  lastMessageAt: string;
+  unreadCount: number;
+};
+
+export type MessagePage = {
+  messages: Message[];
+  nextCursor: string | null;
+};
+
 export type AuthResult = {
   token: string;
   user: AuthUser;

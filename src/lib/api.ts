@@ -3,8 +3,11 @@ import type {
   AuthResult,
   AuthUser,
   Collaborator,
+  ConversationSummary,
   FormRecord,
   Inbox,
+  Message,
+  MessagePage,
   PublicFormRecord,
   SubmissionTable,
 } from "@/lib/types";
@@ -167,6 +170,35 @@ export function removeAssignment(formId: string, userId: string) {
 
 export function getInbox() {
   return request<Inbox>("/me/assignments");
+}
+
+export function getConversations() {
+  return request<ConversationSummary[]>("/me/conversations");
+}
+
+export function getUnreadMessageCount() {
+  return request<{ count: number }>("/me/messages/unread-count");
+}
+
+export function openConversation(userId: string) {
+  return postJson<ConversationSummary>("/conversations", { userId });
+}
+
+export function getConversation(id: string) {
+  return request<ConversationSummary>(`/conversations/${id}`);
+}
+
+export function getMessages(id: string, before?: string | null) {
+  const query = before ? `?before=${encodeURIComponent(before)}` : "";
+  return request<MessagePage>(`/conversations/${id}/messages${query}`);
+}
+
+export function sendMessage(id: string, body: string) {
+  return postJson<Message>(`/conversations/${id}/messages`, { body });
+}
+
+export function markConversationRead(id: string) {
+  return postJson<void>(`/conversations/${id}/read`);
 }
 
 export function getSubmissions(id: string) {
